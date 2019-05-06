@@ -1,0 +1,60 @@
+<!-- form starts here -->
+<div class="container">
+    <div class="flex">
+        <div class="sign-in">
+            <form novalidate #userForm="ngForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="name" class="form-control" name="name" aria-describedby="nameHelp" placeholder="Enter name" [(ngModel)]="user.name" name="name" #userName="ngModel" minlength="2" required>
+                            <div *ngIf="userName.error?.required && userName.touched" class="alert alert-danger">Name is required</div>
+                            <div *ngIf="userName.error?.minlength && userName.touched" class="alert alert-danger">Name should be aleast two character</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Occupation</label>
+                            <input type="occupation" class="form-control" name="occupation" aria-describedby="occupationHelp" placeholder="Enter Occupation" [(ngModel)]="user.occupation" name="occupation" #userOccupation="ngModel" required>
+                            <div *ngIf="userOccupation.error?.minlength && userOccupation.touched" class="alert alert-danger">Fill in your occupation</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Country</label>
+                            <input type="country" class="form-control" name="country" aria-describedby="countryHelp" placeholder="Enter country" [(ngModel)]="user.country" name="country" #userCountry="ngModel" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="phone" class="form-control" name="phone" aria-describedby="phoneHelp" placeholder="Enter phone" [(ngModel)]="user.phone" name="phone" #userPhone="ngModel" minlength="11" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Email address</label>
+                            <input type="email" class="form-control" name="name" aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="user.email" name="Email" #userEmail="ngModel" required>
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)]="user.password" name="password" #userPassword="ngModel" minlength="8" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
